@@ -1,0 +1,17 @@
+<p><a href ="/"> Go back </a></p>
+<h1> Xing Automation </h1>
+<h2> Candidate B's (Contact requests)</h2>
+<br>
+<h2>Instructions:</h2>
+<p> Once you click submit, a new Chrome window will open on the Xing login page. You must manually: </p>
+<ol>
+	<li>login</li>
+	<li>navigate to the project page where are the B candidates are listed</li>
+	<p><i>Note: the system will timeout if you do not do this within 3 minutes. </i></p>
+	<li>wait 5 seconds before the automation begins (if you need to cancel, close the Chrome window immediately)</li>
+</ol>
+<p> Please enter the message you want to send with the contact request in the textbox. Use <i> empty </i>curly brackets as a placeholder for the candidates' names (ex: Hallo {}, wir sind ...).</p>
+<form method="POST" onsubmit="return confirm('Are you sure the message & candidate type is correct?');">
+    <textarea name="text" maxlength="600" rows="4" cols="50" ></textarea>
+    <input type="submit">
+</form>

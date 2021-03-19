@@ -1,0 +1,18 @@
+<p><a href ="/"> Go back </a></p>
+<h1> Xing Automation </h1>
+<h2> Candidate A's (Inmail)</h2>
+<br>
+<h2>Instructions:</h2>
+<p> Once you click submit, a new Chrome window will open on the Xing login page. You must manually: </p>
+<ol>
+	<li>login</li>
+	<li>navigate to the project page where are the A candidates are listed</li>
+	<p><i>Note: the system will timeout if you do not do this within 3 minutes. </i></p>
+	<li>wait 5 seconds before the automation begins (if you need to cancel, close the Chrome window immediately)</li>
+</ol>
+<p> Please enter the message you want to send. Use <i> empty </i>curly brackets as a placeholder for the candidates' names (ex: Hallo {}, wir sind ...).</p>
+<form method="POST" onsubmit="return confirm('Are you sure the message & candidate type is correct?');">
+	<label>Subject:</label><input name="subject" type="text" maxlength="255" style="width: 500px;"><br>
+    <label>Message:</label><br><textarea name="text" rows="6" cols="80" ></textarea>
+    <input type="submit">
+</form>
