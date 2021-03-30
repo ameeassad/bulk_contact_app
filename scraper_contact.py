@@ -15,10 +15,11 @@ def add_contacts(my_message):
 	
 	#Need to select all the candidates you want to connect with
 	result = WebDriverWait(driver, timeout=180).until(lambda d: d.find_element_by_id("project-content"))
-	time.sleep(5) # wait a little bit before the awesome code starts
+	time.sleep(3) # wait a little bit before the awesome code starts
 	if result:
 		while pages:
 			for candidateCard in driver.find_elements_by_css_selector("div[data-testid='candidateCard']"):
+				time.sleep(5)
 				#click ...
 				candidateCard.find_element_by_css_selector("button[data-testid='button-dropdown']").click()
 				#add as contact if not already added
@@ -34,12 +35,11 @@ def add_contacts(my_message):
 						first = name.split()[0]
 						driver.find_element_by_css_selector("textarea[data-testid='textareaText']").send_keys(my_message.format(first))
 
-						time.sleep(1)
+						time.sleep(5)
 						#send out invitation with message
 						element = driver.find_element_by_css_selector("div[data-testid='lightbox-overlay'] div > div > div > button")
 						driver.execute_script("arguments[0].click();", element)
 
-						time.sleep(1)
 					except NoSuchElementException: 
 						continue
 
@@ -65,11 +65,12 @@ def send_inmails(my_subject, my_message):
 
 	#Need to select all the candidates you want to connect with
 	result = WebDriverWait(driver, timeout=180).until(lambda d: d.find_element_by_id("project-content"))
-	time.sleep(5) # wait a little bit before the awesome code starts
+	time.sleep(3) # wait a little bit before the awesome code starts
 	if result:
 
 		while pages:
 			for candidateCard in driver.find_elements_by_css_selector("div[data-testid='candidateCard']"):
+				time.sleep(5)
 				#click send message
 				candidateCard.find_element_by_css_selector("div[data-testid='card-header'] div[data-testid='internal-header'] > div:nth-child(2) > div > button ").click()
 				#send message if not done already
@@ -82,11 +83,12 @@ def send_inmails(my_subject, my_message):
 					form.find_element_by_css_selector("input#subject").send_keys(my_subject.format(first))
 					form.find_element_by_css_selector("textarea[name='body']").send_keys(my_message.format(first))
 
-					time.sleep(1)
-					#send out invitation with message
-					form.find_element_by_css_selector("button[data-testid='reply-button']").click()
+					time.sleep(5)
 
-					time.sleep(1)
+					#send out invitation with message
+					element = driver.find_element_by_css_selector("button[data-testid='reply-button']")
+					driver.execute_script("arguments[0].click();", element)
+
 				except NoSuchElementException:
 					continue
 
